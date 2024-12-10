@@ -13,7 +13,10 @@ while True:
     print("2. View Tasks")
     print("3. Delete Task")
     print("4. Edit Task")
-    print("5. Exit \n")
+    print("5. Clear All")
+    print("6. sort")
+    print("8. Exit \n")
+    print("7. Mark Complete")
     data=input()
     
     match data:
@@ -24,8 +27,9 @@ while True:
             
         case "2":
             print("Tasks:")
-            for get in tasks:
-                print(get)
+            for index,get in enumerate(tasks):
+                index=index+1
+                print(f"{index} - {get}") #or do print(index,"-",get)
             
         case "3":
             task = input("Enter Task to Delete: ")
@@ -45,27 +49,23 @@ while True:
             newtodo=input()
             tasks[number]=newtodo
             
-                
-            
-            
         case "5":
+            tasks.clear()
+            print("All tasks cleared!")   
+            
+            
+        case "8":
             print("Exiting...")
             break
+        case "6":
+            tasks.sort()
+            print(tasks,"Tasks sorted successfully!")
+        
+        case "7":
+            comp=int(input("Select task to be marked as completed"))
+            tasks.pop(comp-1)
             
         case _:
             print("Invalid Option!")
-            
-            
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        for i in nums:
-            for j in nums+1:
-                if i+j==target:
-                    return [nums.index(i),nums.index(j)]
-                
 
-
-store=[]
-x=1221    
-while x > 0:
-    store=x%10
-    
+print(tasks.sort())

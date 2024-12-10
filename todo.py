@@ -89,3 +89,36 @@ while True:
         case _:
             print("Invalid command. Please try again.")
 
+import sys
+from unittest import TestCase
+import re
+
+class Evaluate(TestCase):
+    def test_exercise(self):
+        expected_output = "0-Document.txt\n1-Report.txt\n2-Presentation.txt"
+        filenames = ['document', 'report', 'presentation']
+        
+        import exercise
+        user_output = sys.stdout.getvalue().strip()
+        
+        self.check_print()
+        self.check_output(expected_output, user_output)
+    
+    def check_print(self):
+        with open("exercise.py") as file:
+            content = file.read()
+        check1 = re.compile("print\(.*").search(content)  # check for print statement
+        
+        forgot_message = "It looks like there is no print() function in your code. Did you forget to print out the output?"
+        
+        if check1:
+            pass
+        else:
+            sys.exit(forgot_message)
+            
+    def check_output(self, expected_output, user_output):
+        message_output = f"\n\nYour code printed {user_output}, but the expected output is {expected_output}. Please check again!"
+        if user_output == expected_output:
+            pass
+        else:
+            sys.exit(message_output)
