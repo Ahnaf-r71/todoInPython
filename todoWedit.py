@@ -1,5 +1,6 @@
 print("Welcome to your task planner")
 tasks=[]
+compTasks=[]
 inputPass = input("Enter Your Password: ")
 count = 0
 
@@ -15,8 +16,9 @@ while True:
     print("4. Edit Task")
     print("5. Clear All")
     print("6. sort")
-    print("8. Exit \n")
     print("7. Mark Complete")
+    print("8. Exit \n")
+    
     data=input()
     
     match data:
@@ -62,8 +64,14 @@ while True:
             print(tasks,"Tasks sorted successfully!")
         
         case "7":
+            for serial,value in enumerate(tasks):
+                serial=serial+1
+                print(f"{serial}. {value}")
             comp=int(input("Select task to be marked as completed"))
-            tasks.pop(comp-1)
+            compTasks.append(tasks.pop(comp-1))
+            for index,val in enumerate(compTasks):
+                index=index+1
+                print(f"Task '{index}'-{val} marked as completed!")
             
         case _:
             print("Invalid Option!")
