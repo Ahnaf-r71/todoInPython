@@ -26,6 +26,7 @@ while True:
             task = input("Enter Task: ")
             tasks.append(task)
             print(f"Task '{task}' added successfully!")
+            print("Select what to do next")
             
         case "2":
             print("Tasks:")
