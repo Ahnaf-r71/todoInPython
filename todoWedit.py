@@ -20,6 +20,8 @@ while True:
     print("8. Exit \n")
     
     data=input()
+    # data=data.strip wont work with numbers  , will print <built-in method strip of str object at 0x00007FFD709ED6B0> Invalid Option!
+    print(data)
     
     match data:
         case "1":
