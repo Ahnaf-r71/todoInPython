@@ -25,13 +25,31 @@ while True:
     
     match data:
         case "1":
-            task = input("Enter Task: ")
+            task = input("Enter Task: ") + "\n" 
+            
+            file = open("files/todo.txt","r")
+            tasks=file.readlines()
+            file.close()
             tasks.append(task)
             print(f"Task '{task}' added successfully!")
+            # file=open("todo.txt","w") #w for write r for read w for overwrite
+            # file.writelines(tasks) #writting tasks to files but overwriting,prev one gone
+            file=open("files/todo.txt","w") #w for write
+            file.writelines(tasks)#writting tasks to files
+            file.close()
             print("Select what to do next")
+           
+            #file.readlines returns array and file.read return string 
             
         case "2":
             print("Tasks:")
+            # for manual with no files
+            # for index,get in enumerate(tasks):
+            #     index=index+1
+            #     print(f"{index} - {get}") #or do print(index,"-",get)
+            file = open("files/todo.txt", "r")
+            tasks=file.readlines()
+            file.close()
             for index,get in enumerate(tasks):
                 index=index+1
                 print(f"{index} - {get}") #or do print(index,"-",get)
