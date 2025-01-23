@@ -50,7 +50,13 @@ while True:
             file = open("files/todo.txt", "r")
             tasks=file.readlines()
             file.close()
-            for index,get in enumerate(tasks):
+            
+            new_todos = []
+            for itemstrips in tasks:
+                new_item = itemstrips.strip('\n')
+                new_todos.append(new_item)
+            # for index,get in enumerate(tasks):
+            for index,get in enumerate(new_todos):
                 index=index+1
                 print(f"{index} - {get}") #or do print(index,"-",get)
             
@@ -98,3 +104,4 @@ while True:
             print("Invalid Option!")
 
 print(tasks.sort())
+
