@@ -47,13 +47,21 @@ while True:
             # for index,get in enumerate(tasks):
             #     index=index+1
             #     print(f"{index} - {get}") #or do print(index,"-",get)
-            file = open("files/todo.txt", "r")
-            tasks=file.readlines()
-            file.close()
+            
+            #with with context manager
+            
+            with open("files/todo.txt", "r") as file:
+                tasks=file.readlines()#benefit is no need to close files
+            
+            #without with context manager
+            # file = open("files/todo.txt", "r")
+            # tasks=file.readlines()
+            # file.close()
             
             new_todos = []
             for itemstrips in tasks:
                 new_item = itemstrips.strip('\n')
+                #new_item = [itemstrips.strip('\n') for itemstrips in tasks] #this is list COMPREHENSION
                 new_todos.append(new_item)
             # for index,get in enumerate(tasks):
             for index,get in enumerate(new_todos):
@@ -105,4 +113,4 @@ while True:
 
 print(tasks.sort())
 
-#continue
+#continue from f8-003v
