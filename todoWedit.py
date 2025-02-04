@@ -79,14 +79,41 @@ while True:
                 print(f"Task '{task}' not found!")
         
         case '4':
-            for view in tasks:
-                count=count+1
-                print(f"{count}.{view}")
-            count=0
-            number=int(input("Enter the number of the task you want to edit"))
-            number=number-1
-            newtodo=input()
-            tasks[number]=newtodo
+            # for view in tasks:   #this one is in case of manually read and show existing tasks
+            #     count=count+1
+            #     print(f"{count}.{view}")
+            # count=0
+            # number=int(input("Enter the number of the task you want to edit"))
+            # number=number-1
+            # newtodo=input() #same as line 94
+            # tasks[number]=newtodo #for replacing without txt file
+            with open("files/todo.txt", "r") as file:
+                tasks=file.readlines()
+            tempstore=[]
+            
+            for scan in tasks:
+                new_item=scan.strip('\n')
+                tempstore.append(new_item)
+            for index,get in enumerate(tempstore):
+                index=index+1
+                print(f"{index} - {get}")
+            # num=input("Select The no in besides taks to edit")   
+            
+           
+            
+            # print("Stored Tasks:",tasks) #will print array instead of normal tasks
+            
+            num=int(input("Enter task no"+'\n'))
+            num=num-1 #this one rewrites
+            newtodo=input("Enter new task"+'\n')
+
+            tasks[num]=newtodo+'\n'
+            
+            
+            with open("files/todo.txt", "w") as file:
+                file.writelines(tasks)
+            print(f"Task {newtodo} updated successfully!")
+            
             
         case "5":
             tasks.clear()
