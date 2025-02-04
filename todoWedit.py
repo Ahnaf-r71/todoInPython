@@ -38,7 +38,7 @@ while True:
             file.writelines(tasks)#writting tasks to files
             file.close()
             print("Select what to do next")
-           
+
             #file.readlines returns array and file.read return string 
             
         case "2":
@@ -52,7 +52,9 @@ while True:
             file.close()
             
             new_todos = []
+            #alternative: new_todos=[tasks.strip]
             for itemstrips in tasks:
+                
                 new_item = itemstrips.strip('\n')
                 new_todos.append(new_item)
             # for index,get in enumerate(tasks):
@@ -102,6 +104,10 @@ while True:
             
         case _:
             print("Invalid Option!")
+        
+            
+        
 
+        
 print(tasks.sort())
 
