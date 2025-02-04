@@ -128,14 +128,26 @@ while True:
             print(tasks,"Tasks sorted successfully!")
         
         case "7":
-            for serial,value in enumerate(tasks):
-                serial=serial+1
-                print(f"{serial}. {value}")
-            comp=int(input("Select task to be marked as completed"))
-            compTasks.append(tasks.pop(comp-1))
-            for index,val in enumerate(compTasks):
+            # for serial,value in enumerate(tasks):
+            #     serial=serial+1
+            #     print(f"{serial}. {value}")
+            with open("files/todo.txt",'r') as file:
+                tasks = file.readlines()
+                
+            tempstore=[itemstrip.strip("\n") for itemstrip in tasks]
+            for index,get in enumerate(tempstore):
                 index=index+1
-                print(f"Task '{index}'-{val} marked as completed!")
+                print(f"{index} - {get}")
+            
+            comp=int(input("Select task no to be marked as completed"))
+            completed_task=tasks[comp-1]
+            tasks.pop(comp-1)
+            
+            with open("files/todo.txt",'w') as file:
+                file.writelines(tasks)
+                
+            print(f"Task {completed_task} completed")
+                
             
         case _:
             print("Invalid Option!")
