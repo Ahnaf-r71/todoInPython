@@ -26,7 +26,7 @@ while True:
     match data:
         case "1":
             task = input("Enter Task: ") + "\n" 
-            
+            #can also use with open("files/todo.txt") #by default with open is on r mode
             file = open("files/todo.txt","r")
             tasks=file.readlines()
             file.close()
