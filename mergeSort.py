@@ -17,7 +17,7 @@ def merge(left, right):
     
     #merge elemenets from left and right
 
-      # Merge elements from left and right in sorted order
+    # Merge elements from left and right in sorted order
     while i < len(left) and j < len(right):
         if left[i] <= right[j]:
             sorted_array.append(left[i])
@@ -40,6 +40,6 @@ def merge(left, right):
 
 # Example usage:
 array = [2,3,1,3,4,50,0]
-sorted_array = merge_sort(array)
+sorted_array = mergeSort(array)
 print("Sorted Array:", sorted_array)
     

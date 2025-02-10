@@ -24,8 +24,8 @@ while True:
     print(data)
     
     match data:
-        case "1":
-            task = input("Enter Task: ") + "\n" 
+        case _ if "1" in data or "add" in data:     #previously case "1": // if "1" or "add" in data: // case"1"|"add" in data:
+            task = input("Enter Task To add: ") + "\n" 
             
             file = open("files/todo.txt","r")
             tasks=file.readlines()
@@ -99,7 +99,6 @@ while True:
                 print(f"{index} - {get}")
             # num=input("Select The no in besides taks to edit")   
             
-           
             
             # print("Stored Tasks:",tasks) #will print array instead of normal tasks
             
@@ -152,9 +151,6 @@ while True:
         case _:
             print("Invalid Option!")
         
-            
-        
-
         
 print(tasks.sort())
 
