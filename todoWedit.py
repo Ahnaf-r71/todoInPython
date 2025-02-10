@@ -24,8 +24,8 @@ while True:
     print(data)
     
     match data:
-        case _ if "1" in data or "add" in data:     #previously case "1": // if "1" or "add" in data: // case"1"|"add" in data:
-            task = input("Enter Task To add: ") + "\n" 
+        case "1":
+            task = input("Enter Task: ") + "\n" 
             
             file = open("files/todo.txt","r")
             tasks=file.readlines()
