@@ -38,6 +38,10 @@ while True:
             file.writelines(tasks)#writting tasks to files
             file.close()
             print("Select what to do next")
+            # for testing [4:7] etc etc
+            # testcase=input("give me a data to splice up a bit")
+            # testResults=testcase[4:]
+            # print(testResults)
 
             #file.readlines returns array and file.read return string 
             
