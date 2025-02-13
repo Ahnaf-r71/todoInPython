@@ -36,3 +36,50 @@ ll.append("Bob")
 ll.append("Charlie")
 
 ll.display()  # Output: Alice -> Bob -> Charlie -> None
+
+
+
+
+
+class Node2:
+    def __init__(self,data):
+        self.data =data
+        self.next=None
+        
+class linkedlist2:
+        def __init__(self):
+            self.head=None
+            
+        def create(self,data):
+            newdata=Node2(data)
+            
+            if not self.head:
+                self.head=newdata
+                return
+            
+            last2=self.head
+            while last2.next:
+                last2=last2.next
+                
+            last2.next=newdata
+    
+        def display(self):
+            """Prints all nodes in the linked list."""
+            current = self.head
+            while current:
+                print(current.data, end=" -> ")  # Print node data
+                current = current.next
+            print("None")
+
+
+
+
+lS=linkedlist2()
+lS.create("Alice")
+lS.create("Eugeo")
+lS.create("Kirito")
+lS.display()
+
+# one loop to create the head and store in self 
+# one to store through the existing head
+#and when we reach the last break out while keeping last stored and just append new data to that next of that
