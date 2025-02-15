@@ -1,0 +1,2 @@
+def date():
+    print("Date")

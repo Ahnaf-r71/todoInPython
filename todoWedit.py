@@ -1,3 +1,14 @@
+import sys
+import os
+sys.path.append(os.path.abspath("C:/Users/Windows 10/Desktop/Python/functions"))
+import greet
+print(greet.greetings()) #call only the function if print already in the function, no need for print in that case
+from package import date
+date.date()
+
+
+
+
 print("Welcome to your task planner")
 tasks=[]
 compTasks=[]
@@ -22,7 +33,6 @@ while True:
     data=input()
     # data=data.strip wont work with numbers  , will print <built-in method strip of str object at 0x00007FFD709ED6B0> Invalid Option!
     print(data)
-    
     match data:
         case _ if "1" in data or "add" in data:     #previously case "1": // if "1" or "add" in data: // case"1"|"add" in data
             task = input("Enter Task To add: ") + "\n" 
@@ -151,11 +161,36 @@ while True:
                 
             print(f"Task {completed_task} completed")
                 
+        case "69":
+            try:
+                checking = input("I will check try-catch: ")  # Get user input
+                
+                # Intentionally cause an error for testing
+                result = int(checking) / 0  # This will cause ZeroDivisionError
+                
+                if checking != "69":
+                    print("Input was not 69, continuing...")
+                else:
+                    print("Input was 69!")
+                    
+            except ZeroDivisionError:
+                print("Caught a division by zero error!")  # Handles ZeroDivisionError
+                
+            except ValueError:
+                print("Invalid input! Expected a number.")  # Handles conversion error
+                
+            except Exception as e:
+                print(f"An unexpected error occurred: {e}")  # Catches any other error
             
-        case _:
+        case "exit":
+            print("Exiting...")
+            break
+            
+        case _:#this only works at last case no
             print("Invalid Option!")
+            
         
-        
-print(tasks.sort())
+
+# print(tasks.sort())
 
 #continue from f10-003v
