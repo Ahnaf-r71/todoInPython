@@ -6,6 +6,12 @@ print(greet.greetings()) #call only the function if print already in the functio
 from package import date
 date.date()
 
+# READ FUNCTION TO AVOID READ REPITITION
+def read():
+    with open("files/todo.txt", "r") as r:
+        read_store=r.readlines()
+        return read_store
+print(f"this is a read function {read()}")
 
 
 
