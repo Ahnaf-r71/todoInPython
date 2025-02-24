@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.abspath("C:/Users/Windows 10/Desktop/Python/functions"))
-import greet
+import greet #in case of same folder just import 
 print(greet.greetings()) #call only the function if print already in the function, no need for print in that case
 from package import date
 date.date()
@@ -195,10 +195,20 @@ while True:
         case _:#this only works at last case no
             print("Invalid Option!")
             
-        
+#MULTILINE STRINGS
+text="""
+De da da doo
+
+    Doo da da da da
+"""      
+print(text)
 
 # print(tasks.sort())
 
-#continue from f11-002v
+#continue from f16-001v
 
 #tired
+# return map via return {"task":task, "task2":task2} 
+# normal tuple return task1,task2 #//decoupling, extract different value and return them
+
+# CONDITIONAL BLOCK SEE FUNCTION greet.py in parent folder / functions folder
